@@ -1,47 +1,44 @@
-import './index.css';
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+const pages = document.querySelectorAll('.page');
+let current = 0;
 
-gsap.registerPlugin(ScrollTrigger);
+// Initialize all pages unflipped
+pages.forEach(page => gsap.set(page, { rotateY: 0 }));
 
-gsap.from("#titleName", {
-  opacity: 0,
-  duration: 0.5,
- scale:2
-})
-gsap.from("#tagLine", {
-  opacity: 0,
-  duration: 3,
-  // scale:0.8,
-  y: -100, 
-})
+document.getElementById('next').addEventListener('click', () => {
+  if (current < pages.length - 1) {
+    gsap.to(pages[current], {
+      rotateY: -180,
+      duration: 1,
+      ease: 'power2.inOut'
+    });
+    current++;
+  }
+});
 
-// function setAnimationScroll() {
-//   const runTime = gsap.timeline({
-//     scrollTrigger: {
-//       trigger: '#title',
-//       start: 'top top',
-//       end: 'bottom bottom',
-//       scrub: true,
-//       pin: true,
-//       anticipatePin: 1,
-//     }
-//   });
+document.getElementById('prev').addEventListener('click', () => {
+  if (current > 0) {
+    current--;
+    gsap.to(pages[current], {
+      rotateY: 0,
+      duration: 1,
+      ease: 'power2.inOut'
+    });
+  }
+});
 
-//   // Animation sequence
-//   runTime
-//     .to('#tagLine', {
-//       scale: 2,
-//       opacity: 0,
-//       duration: 2,
-//       scaleX: 1.5, // stretches the tagline horizontally
-//     }, 0)
-//     .to('#titleName', {
-//       scale: 1.5,
-//       y: -50, // moves titleName slightly upward
-//       duration: 2,
-//       ease: "power2.out",
-//     }, 0); // run at the same time as tagline animation
-// }
+document.getElementById('flipAll').addEventListener('click', () => {
+  let delay = 0;
+  for (let i = current; i < pages.length - 1; i++) {
+    gsap.to(pages[i], {
+      rotateY: -180,
+      duration: 0.6,
+      delay: delay,
+      ease: 'power2.inOut'
+    });
+    delay += 0.3;
+  }
 
-// setAnimationScroll();
+  // Ensure last page is not flipped (its front stays visible)
+  // Set current index to last
+  current = pages.length - 1;
+});

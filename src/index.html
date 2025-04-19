@@ -4,19 +4,36 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./style.css" />
     <title>SkillsVarz</title>
+   
   </head>
   <body>
-    <div id="app" class="bg-[url('../assest/mahabharat.png')] bg-cover w-full h-screen flex justify-center items-center">
-      <div id="title" class="lineheight-1.5 text-center bg-opacity-50 rounded-lg">
-        <h1 id="titleName" class="text-7xl font-bold p-4 uppercase text-[#aa5509] stroke-red-950 ">
-          Mahabharat 2.0
-        </h1>
-        <div id="tagLine" class="underline capitalize text-5xl font-bold p-4 text-transparent text-[#aa5509]">The War Of Dharma</div>
-        
+    <div class="hero">
+     <div class="img">
+      <img src="/assest/chariot.png" alt="">
+     </div>
+      <h1>
+        Mahabharat 2.0
+      </h1>
+      <div class="book" id="book">
+        <div class="page" style="z-index: 5;">Page 1</div>
+        <div class="page" style="z-index: 4;">Page 2</div>
+        <div class="page" style="z-index: 3;">Page 3</div>
+        <div class="page" style="z-index: 2;">Page 4</div>
+        <div class="page last" style="z-index: 1;">Page 5</div>
+      </div>
+      <div class="controls">
+        <button id="prev">Prev</button>
+        <button id="next">Next</button>
+        <button id="flipAll">Flip All</button>
+      </div>
+    </div>
+      </h1>
     </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+
     <script type="module" src="./main.js"></script>
   </body>
 </html>
