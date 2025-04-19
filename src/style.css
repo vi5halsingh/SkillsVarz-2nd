@@ -22,19 +22,14 @@ html, body {
   padding-top: 10%;
   position: relative;
 }
-.hero .img {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
 .hero .img img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 50%;
   height: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
+  bottom: -10%;
+  left: -10%;
   z-index: 55;
 }
 .hero h1 {
