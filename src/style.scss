@@ -1,12 +1,18 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 html, body{
-    font-family: 'Poppins', sans-serif;
+    // font-family: 'Poppins', sans-serif;
     background-color: #f0f0f0;
     color: #333;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 // _________book______
@@ -21,40 +27,206 @@ html, body{
 //     background: #f0f0f0;
 //     font-family: sans-serif;
 //   }
+.inknut-antiqua-light {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.inknut-antiqua-regular {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inknut-antiqua-medium {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.inknut-antiqua-semibold {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.inknut-antiqua-bold {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.title .inknut-antiqua-extrabold {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.inknut-antiqua-black {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.title {
+
+  z-index: 55;
+  position: static;
+  font-size: 5rem;
+  text-align: center;
+  // text-transform: uppercase;
+  color: orange;
+  // font-family: MahabharatFont, sans-serif;
+  // animation: floatUpDown 2s infinite; // Adjust duration as needed
+}
 .hero{
+  overflow: hidden;
     background: url('../assest/mahabharat-bg.png') no-repeat center center/cover;
     width: 100%;
     height: 100vh;
     display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-around;
-    padding-top: 10%;
+    flex-direction: row; // Arrange children in a row for desktop
+    // align-items: center;
+    // justify-content: space-between; // Spread out children
+    gap: 2rem;
     position: relative;
-    .img{
-        img{
-            // overflow: hidden;
-            object-fit: cover;
-            width: 50%;
-            height: 100%;
-            position: absolute;
-            // top: 0;
-            bottom: -10%;
-            left: -10%;
-            z-index: 55;
-        }
+
+    .img {
+      z-index: 5;
+      // transform: rotate(2);
+      // flex: 1 1 30%;
+      display: flex;
+      // align-items: flex-end; // Align content to the bottom
+      justify-content: center;
+      min-height: 100vh;
+      // min-width: 30%;
+      /* Remove overflow: hidden; or set to visible */
+      overflow: visible;
+      position: relative;
+      img {z-index: 1;
+        position: absolute;
+        left: 10%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 150%; // Decreased size
+        // max-width: 100%;
+        height: auto;
+        z-index: 55;
+        object-fit: cover;
+      }
     }
 
-    h1{
-        text-align: center;
-        // margin-top: 50%;
-        text-transform: uppercase;
-        color: #fcfcfc;
-    }
+    // Content div (title + controls)
+    > div:nth-child(2), .second {
+      // flex: 1 1 40%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      width: 100%; // Ensure the parent stretches full width
+        span{
+          color: rgb(192, 192, 192);
+          text-transform: uppercase;
+          font-family: "Poppins", sans-serif; ;
+          font-size: 2.3rem;
+          white-space: nowrap;
         }
+    
 
+      .controls {
+        position: static;
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        width: 100%; // Make controls take full width of parent
+      }
+    }
+
+    // Book container
+    > div:last-child {
+      flex: 1 1 30%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .book {
+        position: relative; // Ensure position is not static
+        scale: 0.7;
+        width: 400px;
+        height: 600px;
+        z-index: 100; // Set a high z-index
+      }
+    }
+
+    video {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: auto;
+      min-height: 30vh; // Ensures some height, adjust as needed
+      opacity: 0.2;
+      object-fit: cover;
+      pointer-events: none; // So it doesn't block clicks
+      z-index: 10;
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+    width: 100vw; // Ensure full viewport width
+    min-height: 100vh; // Ensure full viewport height
+    gap: 1rem;
+    .img,
+    > div:nth-child(2),
+    > div:last-child {
+      flex: 1 1 100%;
+      min-height: unset;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+    .img {
+      min-height: 200px; // Ensure enough height for the image
+      position: relative;
+      img {
+        position: absolute;
+        left: 50%; // Center horizontally
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 60%; // Responsive size
+        max-width: 90vw;
+        height: auto;
+        display: block;
+      }
+    }
+    > div:nth-child(2) {
+      width: 100%;
+      padding: 0 1rem;
+      .controls {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 0.75rem;
+      }
+    }
+    > div:nth-child(2) h1 {
+      font-size: 2.5rem;
+      text-align: center;
+    }
+    .book {
+      scale: 0.5;
+      width: 300px;
+      height: 450px;
+    }
+  }
+}
   .book {
+    // overflow: hidden;
     bottom: 0;
     right: 0;
     position: absolute;
@@ -66,6 +238,7 @@ html, body{
   }
 
   .page {
+    padding: 0;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -78,6 +251,11 @@ html, body{
     font-size: 2em;
     transform-origin: left;
     backface-visibility: hidden;
+    img{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .page.flipped {
@@ -85,11 +263,12 @@ html, body{
   }
 
   .controls {
-
+    bottom: 50px;
+    position: absolute;
     // margin-top: 30px;
     display: flex;
     gap: 1rem;
-    #next{
+    #next, #prev{
         display: none;
     }
   }
@@ -104,6 +283,87 @@ html, body{
     cursor: pointer;
   }
 
+  
+  /* CSS */
+button {
+    padding: 0.6em 2em;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background-color: orange;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+button:before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-button-85 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+  
+  @keyframes glowing-button-85 {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 400% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+  
+button:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #222;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
   button:hover {
     background: #6a3b0c;
   }
+
+
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px); // Adjust vertical distance as needed
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
