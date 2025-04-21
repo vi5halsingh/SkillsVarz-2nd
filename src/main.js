@@ -88,7 +88,7 @@ document.getElementById('prev').addEventListener('click', () => {
 });
 
 // --- Parallax Cursor Effect ---
-window.addEventListener('mousemove', (e) => {
+function parallaxHandler(e) {
   const x = e.clientX;
   const y = e.clientY;
   const centerX = window.innerWidth / 2;
@@ -132,4 +132,11 @@ window.addEventListener('mousemove', (e) => {
       ease: "power2.out"
     });
   }
+}
+
+window.addEventListener('mousemove', parallaxHandler);
+
+flipAll.addEventListener('click', () => {
+  // Stop the parallax effect after flipAll is clicked
+  window.removeEventListener('mousemove', parallaxHandler);
 });
