@@ -5,6 +5,9 @@ const bookElement = document.getElementById('book');
 const flipAll = document.getElementById('flipAll');
 //animate book
 flipAll.addEventListener('click', () => {
+  // Prevent mouse follow effect
+  window.removeEventListener('mousemove', parallaxHandler);
+
   // Animate image
   gsap.to(imageElement, {
     x: 1250,
@@ -17,9 +20,9 @@ flipAll.addEventListener('click', () => {
 
   // Animate title
   gsap.to(titleElement, {
-    scale: 5,
+    scale: 70,
     delay: 0.5,
-    opacity: 0,
+    opacity: 1,
     duration: 1.5,
     ease: 'power2.inOut'
   });
@@ -53,7 +56,22 @@ flipAll.addEventListener('click', () => {
     gsap.to(bookElement, {
       scale: 5,
       duration: 1, // Changed from 3 to 1 for a quicker zoom
-      ease: 'power2.inOut'
+      ease: 'power2.inOut',
+      onComplete: () => {
+        // Fade out .hero section after all animations
+        const heroSection = document.querySelector('.hero');
+        if (heroSection) {
+          gsap.to(heroSection, {
+            opacity: 0,
+            duration: 0.7,
+            onComplete: () => {
+              heroSection.style.display = "none";
+              // Enable scroll after hero is hidden (if you want)
+              // document.body.style.overflowY = "scroll";
+            }
+          });
+        }
+      }
     });
   }, (delay) * 1000);
 
@@ -88,6 +106,28 @@ document.getElementById('prev').addEventListener('click', () => {
 });
 
 // --- Parallax Cursor Effect ---
+
+// Infinite floating animation for chariot (imageElement)
+if (imageElement) {
+  gsap.to(imageElement, {
+    y: -20,
+    duration: 3,
+    ease: "power1.inOut",
+    yoyo: true,
+    repeat: -1
+  });
+}
+
+// Infinite floating animation for book (bookElement)
+if (bookElement) {
+  gsap.to(bookElement, {
+    y: -12,
+    duration: 3.5,
+    ease: "power1.inOut",
+    yoyo: true,
+    repeat: -1
+  });
+}
 function parallaxHandler(e) {
   const x = e.clientX;
   const y = e.clientY;
@@ -106,7 +146,7 @@ function parallaxHandler(e) {
   // Animate chariot image
   if (imageElement) {
     gsap.to(imageElement, {
-      x: offsetX * chariotStrength -180,
+      x: offsetX * chariotStrength -350,
       y: offsetY * chariotStrength,
       duration: 0.6,
       ease: "power2.out"
@@ -136,7 +176,18 @@ function parallaxHandler(e) {
 
 window.addEventListener('mousemove', parallaxHandler);
 
-flipAll.addEventListener('click', () => {
-  // Stop the parallax effect after flipAll is clicked
-  window.removeEventListener('mousemove', parallaxHandler);
-});
+// --- DVD BUTTON INDICATOR LOGIC ---
+const dvdBtn = document.getElementById('dvdBtn');
+let dvdSpinning = false;
+
+if (dvdBtn) {
+  dvdBtn.addEventListener('click', () => {
+    dvdSpinning = !dvdSpinning;
+    if (dvdSpinning) {
+      dvdBtn.classList.add('rotating');
+    } else {
+      dvdBtn.classList.remove('rotating');
+    }
+  });
+}
+
