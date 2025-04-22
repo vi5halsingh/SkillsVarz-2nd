@@ -94,6 +94,10 @@ html, body{
     // align-items: center;
     // justify-content: space-between; // Spread out children
     gap: 2rem;
+
+
+-ms-overflow-style: none; // Hide scrollbar for IE and Edge
+scrollbar-width: none; // Hide scrollbar for Firefox
     // top: 0;
     // position: sticky;
 
@@ -285,89 +289,6 @@ html, body{
     }
   }
 
-//   button {
-//     padding: 10px 20px;
-//     font-size: 1em;
-//     background: #4a2505;
-//     color: gold;
-//     border: none;
-//     border-radius: 6px;
-//     cursor: pointer;
-//   }
-
-  
-//   /* CSS */
-// button {
-//     padding: 0.6em 2em;
-//     border: none;
-//     outline: none;
-//     color: rgb(255, 255, 255);
-//     background-color: orange;
-//     cursor: pointer;
-//     position: relative;
-//     z-index: 0;
-//     border-radius: 10px;
-//     user-select: none;
-//     -webkit-user-select: none;
-//     touch-action: manipulation;
-//   }
-  
-// button:before {
-//     content: "";
-//     background: linear-gradient(
-//       45deg,
-//       #ff0000,
-//       #ff7300,
-//       #fffb00,
-//       #48ff00,
-//       #00ffd5,
-//       #002bff,
-//       #7a00ff,
-//       #ff00c8,
-//       #ff0000
-//     );
-//     position: absolute;
-//     top: -2px;
-//     left: -2px;
-//     background-size: 400%;
-//     z-index: -1;
-//     filter: blur(5px);
-//     -webkit-filter: blur(5px);
-//     width: calc(100% + 4px);
-//     height: calc(100% + 4px);
-//     animation: glowing-button-85 20s linear infinite;
-//     transition: opacity 0.3s ease-in-out;
-//     border-radius: 10px;
-//   }
-  
-//   @keyframes glowing-button-85 {
-//     0% {
-//       background-position: 0 0;
-//     }
-//     50% {
-//       background-position: 400% 0;
-//     }
-//     100% {
-//       background-position: 0 0;
-//     }
-//   }
-  
-// button:after {
-//     z-index: -1;
-//     content: "";
-//     position: absolute;
-//     width: 100%;
-//     height: 100%;
-//     background: #222;
-//     left: 0;
-//     top: 0;
-//     border-radius: 10px;
-//   }
-//   button:hover {
-//     background: #6a3b0c;
-//   }
-
-
 @keyframes floatUpDown {
   0% {
     transform: translateY(0);
@@ -385,8 +306,8 @@ html, body{
   position: absolute;
   top: 24px;
   right: 24px;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   background: #222;
   color: #fff;
   border-radius: 50%;
@@ -397,7 +318,7 @@ html, body{
   font-size: 1.2rem;
   box-shadow: 0 4px 16px rgba(0,0,0,0.25);
   cursor: pointer;
-  z-index: 10000; // Set z-index to 10000
+  z-index: 1000000; // Increased from 10000
   transition: background 0.2s;
   user-select: none;
   border: 2px solid orange;
@@ -407,7 +328,7 @@ html, body{
   color: #222;
 }
 .dvd-btn.rotating {
-  animation: dvd-spin 1s linear infinite;
+  animation: dvd-spin 5s linear infinite;
 }
 @keyframes dvd-spin {
   100% {
@@ -451,6 +372,7 @@ html, body{
         align-items: center;
         width: 100%;
         gap: 0.5rem;
+        overflow: hidden;
       }
     }
 

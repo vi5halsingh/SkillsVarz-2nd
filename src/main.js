@@ -3,6 +3,11 @@ const imageElement = document.querySelector('.img .image');
 const titleElement = document.querySelector('.title');
 const bookElement = document.getElementById('book');
 const flipAll = document.getElementById('flipAll');
+
+
+
+
+
 //animate book
 flipAll.addEventListener('click', () => {
   // Prevent mouse follow effect
@@ -177,17 +182,37 @@ function parallaxHandler(e) {
 window.addEventListener('mousemove', parallaxHandler);
 
 // --- DVD BUTTON INDICATOR LOGIC ---
+
+import { Howl } from "howler";
+var sound = new Howl({
+  src: ['./mahabharat.mp3'],
+  autoplay: false,
+  loop: true,
+  volume: 0.1
+});
 const dvdBtn = document.getElementById('dvdBtn');
 let dvdSpinning = false;
 
 if (dvdBtn) {
   dvdBtn.addEventListener('click', () => {
+   
     dvdSpinning = !dvdSpinning;
     if (dvdSpinning) {
       dvdBtn.classList.add('rotating');
+      sound.play();
     } else {
       dvdBtn.classList.remove('rotating');
+      sound.pause();
     }
   });
 }
+
+// window.addEventListener('scroll', preventScroll, { passive: false });
+// function preventScroll(e) {
+//   window.scrollTo(0, 0); // Keep resetting to top
+//   e.preventDefault();
+// }
+//abhimanyu section 
+
+
 
