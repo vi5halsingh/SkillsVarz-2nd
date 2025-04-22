@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "gsap": "^3.12.7",
+    "howler": "^2.2.4",
     "sheryjs": "^1.0.0-beta.0.1.8"
   }
 }
