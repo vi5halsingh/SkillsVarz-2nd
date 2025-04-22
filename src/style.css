@@ -1,53 +1,350 @@
-@import"https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap";@import"https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap";*{ margin:0; padding:0; box-sizing:border-box }
-html,body{ background-color:#f0f0f0; color:#333; width:100%; overflow-x:hidden }
-.inknut-antiqua-light{ font-family:"Inknut Antiqua",serif; font-weight:300; font-style:normal }
-.inknut-antiqua-regular{ font-family:"Inknut Antiqua",serif; font-weight:400; font-style:normal }
-.inknut-antiqua-medium{ font-family:"Inknut Antiqua",serif; font-weight:500; font-style:normal }
-.inknut-antiqua-semibold{ font-family:"Inknut Antiqua",serif; font-weight:600; font-style:normal }
-.inknut-antiqua-bold{ font-family:"Inknut Antiqua",serif; font-weight:700; font-style:normal }
-.title .inknut-antiqua-extrabold{ font-family:"Inknut Antiqua",serif; font-weight:800; font-style:normal }
-.inknut-antiqua-black{ font-family:"Inknut Antiqua",serif; font-weight:900; font-style:normal }
-.title{ z-index:55; position:static; font-size:5rem; text-align:center; color:orange }
-.hero{ overflow:hidden; background:url("../assest/mahabharat-bg.png") no-repeat center center/cover; width:100vw !important; height:100vh !important; min-height:100vh !important; display:flex; flex-direction:row; gap:2rem }
-.hero .img{ z-index:5; display:flex; justify-content:center; min-height:100vh; overflow:visible; position:relative }
-.hero .img img{ z-index:1; position:absolute; left:10%; bottom:0; transform:translateX(-50%); width:150%; height:auto; z-index:55; object-fit:cover }
-.hero>div:nth-child(2),.hero .second{ display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2rem; width:100% }
-.hero>div:nth-child(2) span,.hero .second span{ color:silver; text-transform:uppercase; font-family:"Poppins",sans-serif; font-size:2.3rem; white-space:nowrap }
-.hero>div:nth-child(2) .controls,.hero .second .controls{ position:static; display:flex; gap:1rem; justify-content:center; width:100% }
-.hero>div:last-child{ flex:1 1 30%; display:flex; align-items:center; justify-content:flex-end }
-.hero>div:last-child .book{ margin-top:40%; position:relative; scale:.7; width:400px; height:600px; box-shadow:rgba(0,0,0,.25) 0px 54px 55px,rgba(0,0,0,.12) 0px -12px 30px,rgba(0,0,0,.12) 0px 4px 6px,rgba(0,0,0,.17) 0px 12px 13px,rgba(0,0,0,.09) 0px -3px 5px }
-.hero video{ position:absolute; left:0; bottom:0; width:100%; height:auto; min-height:30vh; opacity:.2; object-fit:cover; pointer-events:none; z-index:10 }
-@media(max-width:900px){ .hero{flex-direction:column; width:100vw; min-height:100vh; gap:1rem }
-.hero .img,.hero>div:nth-child(2),.hero>div:last-child{ flex:1 1 100%; min-height:unset; width:100%; justify-content:center; align-items:center }
-.hero .img{ min-height:200px; position:relative }
-.hero .img img{ position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:60%; max-width:90vw; height:auto; display:block }
-.hero>div:nth-child(2){ width:100%; padding:0 1rem }
-.hero>div:nth-child(2) .controls{ flex-direction:column; align-items:center; width:100%; gap:.75rem }
-.hero>div:nth-child(2) h1{ font-size:2.5rem; text-align:center }
-.hero .book{ scale:.5; width:300px; height:450px }
+@import url("https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.book{ bottom:0; right:0; position:absolute; scale:.5; width:400px; height:600px; perspective:2000px }
-.page{ padding:0; position:absolute; width:100%; height:100%; background:#fff; border:1px solid #ccc; box-shadow:0 0 15px rgba(0,0,0,.1); display:flex; justify-content:center; align-items:center; font-size:2em; transform-origin:left; backface-visibility:hidden }
-.page img{ object-fit:cover; width:100%; height:100% }
-.page.flipped{ pointer-events:none }
-.controls{ bottom:50px; position:absolute; display:flex; gap:1rem }
-.controls #next,.controls #prev{ display:none }
-@keyframes floatUpDown{ 0%{transform:translateY(0) }
-50%{ transform:translateY(-15px) }
-100%{ transform:translateY(0) }
+
+html, body {
+  background-color: #f0f0f0;
+  color: #333;
+  width: 100%;
+  overflow-x: hidden;
 }
-.dvd-btn{ position:absolute; top:24px; right:24px; width:60px; height:60px; background:#222; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:1.2rem; box-shadow:0 4px 16px rgba(0,0,0,.25); cursor:pointer; z-index:10000; transition:background .2s; user-select:none; border:2px solid orange }
-.dvd-btn:hover{ background:orange; color:#222 }
-.dvd-btn.rotating{ animation:dvd-spin 1s linear infinite }
-@keyframes dvd-spin{ 100%{transform:rotate(360deg) }
+
+.inknut-antiqua-light {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 300;
+  font-style: normal;
 }
-@media(max-width:600px){ .hero{position:fixed; top:0; left:0; width:100vw !important; height:100vh !important; min-height:100vh !important; flex-direction:column; gap:1rem; padding:0; z-index:20000 }
-.hero .img{ min-height:160px }
-.hero .img img{ width:100%; max-width:95vw; left:50% !important; top:10% }
-.hero>div:nth-child(2),.hero .second{ width:100%; padding:0 .5rem; gap:1rem }
-.hero>div:nth-child(2) span,.hero .second span{ font-size:1.3rem }
-.hero>div:nth-child(2) .controls,.hero .second .controls{ flex-direction:column; align-items:center; width:100%; gap:.5rem }
-.hero>div:nth-child(2) h1{ font-size:2rem; text-align:center }
-.hero>div:last-child,.hero .book{ scale:.45; width:100%; height:270px; margin-top:0; align-items:center; justify-content:center }
-.dvd-btn{ top:12px; right:12px; width:44px; height:44px; font-size:1rem }
+
+.inknut-antiqua-regular {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 400;
+  font-style: normal;
 }
+
+.inknut-antiqua-medium {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.inknut-antiqua-semibold {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.inknut-antiqua-bold {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.title .inknut-antiqua-extrabold {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.inknut-antiqua-black {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.title {
+  z-index: 55;
+  position: static;
+  font-size: 5rem;
+  text-align: center;
+  color: orange;
+}
+
+.hero {
+  overflow: hidden;
+  background: url("../assest/mahabharat-bg.png") no-repeat center center/cover;
+  width: 100vw !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hero .img {
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  /* Remove overflow: hidden; or set to visible */
+  overflow: visible;
+  position: relative;
+}
+.hero .img img {
+  z-index: 1;
+  position: absolute;
+  left: 10%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 150%;
+  height: auto;
+  z-index: 55;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.hero > div:nth-child(2), .hero .second {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+}
+.hero > div:nth-child(2) span, .hero .second span {
+  color: rgb(192, 192, 192);
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.3rem;
+  white-space: nowrap;
+}
+.hero > div:nth-child(2) .controls, .hero .second .controls {
+  position: static;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+}
+.hero > div:last-child {
+  flex: 1 1 30%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.hero > div:last-child .book {
+  margin-top: 40%;
+  position: relative;
+  scale: 0.7;
+  width: 400px;
+  height: 600px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.hero video {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  min-height: 30vh;
+  opacity: 0.2;
+  -o-object-fit: cover;
+     object-fit: cover;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    width: 100vw;
+    min-height: 100vh;
+    gap: 1rem;
+  }
+  .hero .img,
+  .hero > div:nth-child(2),
+  .hero > div:last-child {
+    flex: 1 1 100%;
+    min-height: unset;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero .img {
+    min-height: 200px;
+    position: relative;
+  }
+  .hero .img img {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60%;
+    max-width: 90vw;
+    height: auto;
+    display: block;
+  }
+  .hero > div:nth-child(2) {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  .hero > div:nth-child(2) .controls {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0.75rem;
+  }
+  .hero > div:nth-child(2) h1 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  .hero .book {
+    scale: 0.5;
+    width: 300px;
+    height: 450px;
+  }
+}
+.book {
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  scale: 0.5;
+  width: 400px;
+  height: 600px;
+  perspective: 2000px;
+}
+
+.page {
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  transform-origin: left;
+  backface-visibility: hidden;
+}
+.page img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.page.flipped {
+  pointer-events: none;
+}
+
+.controls {
+  bottom: 50px;
+  position: absolute;
+  display: flex;
+  gap: 1rem;
+}
+.controls #next, .controls #prev {
+  display: none;
+}
+
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.dvd-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  background: #222;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  z-index: 1000000;
+  transition: background 0.2s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  border: 2px solid orange;
+}
+
+.dvd-btn:hover {
+  background: orange;
+  color: #222;
+}
+
+.dvd-btn.rotating {
+  animation: dvd-spin 5s linear infinite;
+}
+
+@keyframes dvd-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 600px) {
+  .hero {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+    z-index: 20000;
+  }
+  .hero .img {
+    min-height: 160px;
+  }
+  .hero .img img {
+    width: 100%;
+    max-width: 95vw;
+    left: 50% !important;
+    top: 10%;
+  }
+  .hero > div:nth-child(2), .hero .second {
+    width: 100%;
+    padding: 0 0.5rem;
+    gap: 1rem;
+  }
+  .hero > div:nth-child(2) span, .hero .second span {
+    font-size: 1.3rem;
+  }
+  .hero > div:nth-child(2) .controls, .hero .second .controls {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+    overflow: hidden;
+  }
+  .hero > div:nth-child(2) h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .hero > div:last-child, .hero .book {
+    scale: 0.45;
+    width: 100%;
+    height: 270px;
+    margin-top: 0;
+    align-items: center;
+    justify-content: center;
+  }
+  .dvd-btn {
+    top: 12px;
+    right: 12px;
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+}/*# sourceMappingURL=style.css.map */
