@@ -183,36 +183,49 @@ window.addEventListener('mousemove', parallaxHandler);
 
 // --- DVD BUTTON INDICATOR LOGIC ---
 
-import { Howl } from "howler";
-var sound = new Howl({
-  src: ['./mahabharat.mp3'],
-  autoplay: false,
-  loop: true,
-  volume: 0.1
-});
-const dvdBtn = document.getElementById('dvdBtn');
-let dvdSpinning = false;
+// import { Howl } from "howler";
+// var sound = new Howl({
+//   src: ['./mahabharat.mp3'],
+//   autoplay: false,
+//   loop: true,
+//   volume: 0.1
+// });
+// const dvdBtn = document.getElementById('dvdBtn');
+// let dvdSpinning = false;
 
-if (dvdBtn) {
-  dvdBtn.addEventListener('click', () => {
+// if (dvdBtn) {
+//   dvdBtn.addEventListener('click', () => {
    
-    dvdSpinning = !dvdSpinning;
-    if (dvdSpinning) {
-      dvdBtn.classList.add('rotating');
-      sound.play();
-    } else {
-      dvdBtn.classList.remove('rotating');
-      sound.pause();
-    }
-  });
-}
+//     dvdSpinning = !dvdSpinning;
+//     if (dvdSpinning) {
+//       dvdBtn.classList.add('rotating');
+//       sound.play();
+//     } else {
+//       dvdBtn.classList.remove('rotating');
+//       sound.pause();
+//     }
+//   });
+// }
 
 // window.addEventListener('scroll', preventScroll, { passive: false });
 // function preventScroll(e) {
 //   window.scrollTo(0, 0); // Keep resetting to top
 //   e.preventDefault();
 // }
-//abhimanyu section 
+//abhimanyu section
+
+// When video ends
+mainVideo.addEventListener('ended', () => {
+    const heroBtns = document.querySelector('.hero-btns');
+    heroBtns.classList.add('show-buttons');
+    
+    // Existing animation code
+    gsap.to([enterBtn, replayBtn], {
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.inOut'
+    });
+});
 
 
 
