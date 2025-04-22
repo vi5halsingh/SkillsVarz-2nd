@@ -12,13 +12,22 @@
     <div class="hero" style="position: fixed; z-index: 100000; ">
     <div class="hero" style="position: absolute; z-index: 100000; ">
       <div>
-        <video src="/assest/landing.mp4" style="opacity: 1;" autoplay loop muted></video>
-      <video src="/assest/particles.mp4" autoplay loop muted></video>
+        <video id="mainVideo" src="/assest/landing.mp4" style="opacity: 1;" autoplay muted></video>
+        <video src="/assest/particles.mp4" autoplay loop muted></video>
       </div>
       <div class="title">
-        <h1>
-          महाभारत  2.0
-        </h1>
+        <img src="/assest/maha-h1.png" alt="महाभारत 2.0">
+    <div class="hero-btns">
+          <button id="enterBtn" style="opacity: 0;">Enter</button>
+        <button id="replayBtn" style="opacity: 0;">Replay</button>
+    </div>
+    <div class="marquee-wrapper">
+      <div class="marquee-container">
+        <div class="marquee-content">
+          महाभारत 2.0 • WAR OF DHARMA • संग्राम का युद्ध • 
+        </div>
+      </div>
+    </div>
       </div>
      <!--div class="img">
 =======
@@ -66,7 +75,6 @@
       ></iframe>
     </section>
  
-<<<<<<< HEAD
     <div>
       <canvas id="hero-canvas" width="1920" height="1080"></canvas>
       <div class="overlay-lines">
@@ -123,10 +131,8 @@
         </div>
       </section>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-    <script>
+    <!-- <script>
     // Scroll lock logic
     let isHeroVisible = true;
     const heroSection = document.querySelector('.hero');
@@ -158,7 +164,7 @@
         document.documentElement.scrollTo(0, 0);
       }
     });
-    </script>
+    </script> -->
     
       <section class="keeper-section">
         <div class="keeper-title">ABHIMANYU IN BATTLE</div>
@@ -215,7 +221,6 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
       <script src="abhimanyuScript.js"></script>
     </div>
-=======
     <section class="section-form-927" id="animatedFormSection">
       <iframe 
         src="./Abhimanyu/abhimanyuSection.html" 
@@ -225,10 +230,12 @@
       ></iframe>
     </section>
  
->>>>>>> 89af157d781f5ebec51ac3bbf481a9cfc2a62d3f
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
 
     <script>
     // Scroll lock logic
@@ -263,7 +270,49 @@
       }
     });
     </script>
-    
+<script>
+  // Video controls
+  const mainVideo = document.getElementById('mainVideo');
+  const enterBtn = document.getElementById('enterBtn');
+  const replayBtn = document.getElementById('replayBtn');
+
+  // Initialize video properties
+  mainVideo.loop = false;
+
+  // When video ends
+  mainVideo.addEventListener('ended', () => {
+      enterBtn.style.display = 'block';
+      gsap.to(enterBtn, {opacity: 1, duration: 1});
+      gsap.to(replayBtn, {opacity: 1, duration: 1, display: 'block'});
+      mainVideo.pause();
+  });
+
+  // Handle enter button click
+  enterBtn.addEventListener('click', () => {
+      gsap.to(mainVideo, {
+          opacity: 0,
+          duration: 1,
+          onComplete: () => {
+              mainVideo.style.display = 'none';
+              // Optional: Hide the hero section completely
+              document.querySelector('.hero').style.display = 'none';
+          }
+      });
+
+      gsap.to(enterBtn, {opacity: 0, duration: 0.5});
+      gsap.to(replayBtn, {opacity: 0, duration: 0.5});
+  });
+
+  // Handle replay button click
+  replayBtn.addEventListener('click', () => {
+      mainVideo.currentTime = 0;
+      mainVideo.style.display = 'block';
+      gsap.to(mainVideo, {opacity: 1, duration: 1});
+      mainVideo.play();
+      gsap.to(enterBtn, {opacity: 0, duration: 0.5});
+      gsap.to(replayBtn, {opacity: 0, duration: 0.5});
+  });
+</script>    
     <script type="module" src="./main.js"></script>
     <div class="dvd-btn" id="dvdBtn" title="Toggle DVD Spin">
       <!-- You can use an emoji, SVG, or text. Here is a simple DVD text. -->
@@ -271,3 +320,8 @@
     </div>
   </body>
 </html>
+
+
+
+
+
