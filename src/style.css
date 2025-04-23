@@ -908,3 +908,21 @@ button:active {
     opacity: 0.3;
   }
 }/*# sourceMappingURL=style.css.map */
+
+/* Add these styles */
+.section-form-927 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100000; /* Higher than hero section */
+}
+
+/* Remove these conflicting properties */
+/*
+.section-form-927 {
+  max-width: 500px;
+  margin: 120px auto 0 auto;
+}
+*/
