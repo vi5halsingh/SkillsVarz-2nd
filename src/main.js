@@ -3,8 +3,17 @@ const imageElement = document.querySelector('.img .image');
 const titleElement = document.querySelector('.title');
 const bookElement = document.getElementById('book');
 const flipAll = document.getElementById('flipAll');
+import { Howl, Howler } from "howler";
+window.addEventListener('load', () => {
 
-
+  // Initialize Howler
+  const sound = new Howl({
+    src: ['/mahabharat.mp3'],
+    autoplay:true,
+    volume: 0.5
+  });
+  sound.play()
+});
 
 
 
@@ -200,50 +209,7 @@ if (mainVideo) {
 
 
 // --- DVD BUTTON INDICATOR LOGIC ---
-import { Howl } from "howler";
 
-// Create audio instance with error handling
-let sound;
-try {
-  sound = new Howl({
-    src: ['./mahabharat.mp3'],
-    autoplay: false,
-    loop: true,
-    volume: 0.1,
-    onloaderror: function(id, err) {
-      console.error('Error loading audio:', err);
-    }
-  });
-} catch (err) {
-  console.error('Error creating Howl instance:', err);
-}
-
-const dvdBtn = document.getElementById('dvdBtn');
-let dvdSpinning = false;
-
-if (dvdBtn) {
-  dvdBtn.addEventListener('click', () => {
-    try {
-      alert("hello");
-      dvdSpinning = !dvdSpinning;
-      if (dvdSpinning) {
-        dvdBtn.classList.add('rotating');
-        if (sound && sound.state() === 'loaded') {
-          sound.play();
-        } else {
-          console.warn('Audio not ready or failed to load');
-        }
-      } else {
-        dvdBtn.classList.remove('rotating');
-        if (sound) {
-          sound.pause();
-        }
-      }
-    } catch (err) {
-      console.error('Error handling DVD button click:', err);
-    }
-  });
-}
 
 
   // Video controls

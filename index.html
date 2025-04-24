@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./src/style.css" />
     <title>SkillsVarz</title>
   
   </head>
@@ -12,11 +12,11 @@
    
     <div class="hero" style="position: absolute; z-index: 100000; ">
       <div>
-        <video id="mainVideo" src="/assest/landing.mp4" style="opacity: 1;" autoplay muted></video>
-        <video src="/assest/particles.mp4" autoplay loop muted></video>
+        <video id="mainVideo" src="/assets/landing.mp4" style="opacity: 1;" autoplay muted></video>
+        <video src="/particles.mp4" autoplay loop muted></video>
       </div>
       <div class="title">
-        <img src="/assest/maha-h1.png" alt="महाभारत 2.0">
+        <img src="/assets/maha-h1.png" alt="महाभारत 2.0">
     <div class="hero-btns">
           <button id="enterBtn" style="opacity: 0;">Enter</button>
         <button id="replayBtn" style="opacity: 0;">Replay</button>
@@ -34,7 +34,7 @@
     </div>
     <section class="section-form-927" id="animatedFormSection">
       <iframe 
-        src="./Abhimanyu/abhimanyuSection.html" 
+        src="./src/Abhimanyu/abhimanyuSection.html" 
         style="width:100%; height:100vh; border:none; position:relative; z-index:10000; scrollbar-width: none; -ms-overflow-style: none;"
         scrolling="yes"
         id="abhimanyuIframe"
@@ -124,7 +124,7 @@
       gsap.to(replayBtn, {opacity: 0, duration: 0.5});
   });
 </script>    
-    <script type="module" src="./main.js"></script>
+    <script type="module" src="./src/main.js"></script>
     <div class="dvd-btn" id="dvdBtn" title="Toggle DVD Spin">
       <!-- You can use an emoji, SVG, or text. Here is a simple DVD text. -->
       <span>DVD</span>
