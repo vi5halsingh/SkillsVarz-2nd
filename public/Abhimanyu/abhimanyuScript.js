@@ -6,7 +6,7 @@ const contentSection = document.getElementById("content-section");
 const context = canvas.getContext("2d");
 
 const frameCount = 76;
-const currentFrame = index => `vdo abhimanyu/frame (${String(index +1)}).webp`;
+const currentFrame = index => `/assets/vdo abhimanyu/frame (${String(index +1)}).webp`;
 // console.log("abhi is ",currentFrame(0));
 const images = [];
 let imageSeq = { frame: 0 };

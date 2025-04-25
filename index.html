@@ -12,10 +12,10 @@
 
 <body>
 
-  <div class="hero" style="display:none; position: absolute; z-index: 100000; ">
+  <div class="hero" style="position: absolute; z-index: 100000; ">
     <div>
-      <video id="mainVideo" src="/assets/landing.mp4" style="opacity: 1;" autoplay muted></video>
-      <video src="/particles.mp4" autoplay loop muted></video>
+      <video id="mainVideo" src="/assets/landing (1).mp4" style="opacity: 1;" autoplay muted></video>
+      <video src="/assets/particles.mp4" autoplay loop muted></video>
     </div>
     <div class="title">
       <img src="/assets/maha-h1.png" alt="महाभारत 2.0">
@@ -47,13 +47,15 @@
   </div>
 
   <script>
-      window.addEventListener('message', function(event) {
+window.addEventListener('message', function(event) {
     if (event.data && event.data.type === 'scrollToMain') {
-      // const section = document.getElementById('geetaSection');
-     const main =  document.querySelector(".hero").style.display = "block";
-      if (main) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
+        const heroElement = document.querySelector(".hero");
+        if (heroElement) {
+          console.log("Hero element found.");
+            heroElement.style.display = "block";
+            heroElement.style.opacity = 1;
+            heroElement.scrollIntoView({ behavior: 'smooth' });
+        }
     }
   });
     window.addEventListener('message', function(event) {
@@ -144,8 +146,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
   <script>
