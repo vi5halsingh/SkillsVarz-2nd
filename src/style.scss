@@ -112,33 +112,7 @@ background-clip: padding-box;
 
 -ms-overflow-style: none; // Hide scrollbar for IE and Edge
 scrollbar-width: none; // Hide scrollbar for Firefox
-    // top: 0;
-    // position: sticky;
-
-    // .img {
-    //   z-index: 5;
-    //   // transform: rotate(2);
-    //   // flex: 1 1 30%;
-    //   display: flex;
-    //   // align-items: flex-end; // Align content to the bottom
-    //   justify-content: center;
-    //   min-height: 100vh;
-    //   // min-width: 30%;
-    //   /* Remove overflow: hidden; or set to visible */
-    //   overflow: visible;
-    //   position: relative;
-    //   img {z-index: 1;
-    //     position: absolute;
-    //     left: 10%;
-    //     bottom: 0;
-    //     transform: translateX(-50%);
-    //     width: 150%; // Decreased size
-    //     // max-width: 100%;
-    //     height: auto;
-    //     z-index: 55;
-    //     object-fit: cover;
-    //   }
-    // }
+    
 
     // Content div (title + controls)
     > div:nth-child(2), .second {
@@ -1041,3 +1015,20 @@ button:active {
   }
 }
 
+body {
+  overflow-x: hidden;
+  overflow-y: scroll; /* Force scroll track */
+  height: auto; /* Remove fixed height */
+}
+
+/* Keep scrollbar hiding rules */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Fix html overflow */
+html {
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

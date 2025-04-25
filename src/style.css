@@ -907,4 +907,21 @@ button:active {
   .hero video {
     opacity: 0.3;
   }
+}
+body {
+  overflow-x: hidden;
+  overflow-y: scroll; /* Force scroll track */
+  height: auto; /* Remove fixed height */
+}
+
+/* Keep scrollbar hiding rules */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Fix html overflow */
+html {
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }/*# sourceMappingURL=style.css.map */
