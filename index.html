@@ -1,65 +1,165 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/style.css" />
-    <title>SkillsVarz</title>
-  
-  </head>
-  <body>
-   
-    <div class="hero" style="position: absolute; z-index: 100000; ">
-      <div>
-        <video id="mainVideo" src="/assets/landing.mp4" style="opacity: 1;" autoplay muted></video>
-        <video src="/particles.mp4" autoplay loop muted></video>
-      </div>
-      <div class="title">
-        <img src="/assets/maha-h1.png" alt="महाभारत 2.0">
-    <div class="hero-btns">
-          <button id="enterBtn" style="opacity: 0;">Enter</button>
-        <button id="replayBtn" style="opacity: 0;">Replay</button>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./src/style.css" />
+  <title>SkillsVarz</title>
+
+</head>
+
+<body>
+
+  <div class="hero" style="display:none; position: absolute; z-index: 100000; ">
+    <div>
+      <video id="mainVideo" src="/assets/landing.mp4" style="opacity: 1;" autoplay muted></video>
+      <video src="/particles.mp4" autoplay loop muted></video>
     </div>
-    <div class="marquee-wrapper">
-      <div class="marquee-container">
-        <div class="marquee-content">
-          महाभारत 2.0 • WAR OF DHARMA • धर्म युद्ध 
-          • 
+    <div class="title">
+      <img src="/assets/maha-h1.png" alt="महाभारत 2.0">
+      <div class="hero-btns">
+        <button id="enterBtn" style="opacity: 0;">Enter</button>
+        <button id="replayBtn" style="opacity: 0;">Replay</button>
+      </div>
+      <div class="marquee-wrapper">
+        <div class="marquee-container">
+          <div class="marquee-content">
+            महाभारत 2.0 • WAR OF DHARMA • धर्म युद्ध
+            •
+          </div>
         </div>
       </div>
     </div>
-      </div>
 
-    </div>
-    <section class="section-form-927" id="animatedFormSection">
-       <iframe 
-        src="/Abhimanyu/abhimanyuSection.html" 
-        style="width:100%; height:100vh; border:none; position:relative; z-index:10000; scrollbar-width: none; -ms-overflow-style: none;"
-        scrolling="yes"
-        id="abhimanyuIframe"
-      ></iframe>
-    </section>
- 
+  </div>
+  <section class="section-form-927" id="animatedFormSection">
+    <div id="dropdiSection" style="position: relative;">
+
+      <iframe src="/Dropdi/dropati.html"
+      style="width:100%; height:100vh; border:none; position:relative; scrollbar-width: none; -ms-overflow-style: none;"
+      scrolling="yes" id="dropdiIframe">
+    </iframe>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Button moved outside iframe -->
+  
+  </div>
+
+  <script>
+      window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'scrollToMain') {
+      // const section = document.getElementById('geetaSection');
+     const main =  document.querySelector(".hero").style.display = "block";
+      if (main) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+    window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'scrollToGeeta') {
+      const section = document.getElementById('geetaSection');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'scrollToAbhimanyu') {
+      const section = document.getElementById('abhimanyuSection');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+  
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'scrollToKaranArjun') {
+      const section = document.getElementById('karanArjunSection');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+  
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'scrollToDropdi') {
+      const section = document.getElementById('dropdiSection');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'prevDropdi') {
+      const section = document.getElementById('dropdiSection');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'prevGeeta') {
+      const section = document.getElementById('geetaSection');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'prevAbhimanyu') {
+      const section = document.getElementById('abhimanyuSection');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+  
+
+  
+  </script>
+    
+    <div id="geetaSection">
+      <iframe src="/GeetaSection/booksofdesign/index.html"
+      style="width:100%; height:100vh; border:none; position:relative; z-index:10000; scrollbar-width: none; -ms-overflow-style: none;"
+      scrolling="yes" id="geetaIframe"></iframe>
+    </div>
+    <div id="abhimanyuSection">
+      <iframe src="/Abhimanyu/abhimanyuSection.html"
+      style="width:100%; height:100vh; border:none; position:relative; z-index:10000; scrollbar-width: none; -ms-overflow-style: none;"
+      scrolling="yes" id="abhimanyuIframe">
+    </iframe>
+    </div>
+    
+
+    <div id="karanArjunSection">
+        <iframe src="/karan arjun war/sectwo.html"
+        style="width:100%; height:100vh; border:none; position:relative; z-index:10000; scrollbar-width: none; -ms-overflow-style: none;"
+        scrolling="yes" id="karanArjunIframe"></iframe>
+      </section>
+    </div>
 
 
-    <script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+  <script>
     // Scroll lock logic
     let isHeroVisible = true;
     const heroSection = document.querySelector('.hero');
-    
+
     // Initial lock
     document.documentElement.style.overflow = 'hidden';
-    
+
     // Watch for hero visibility changes
     const observer = new MutationObserver(() => {
       const heroDisplay = getComputedStyle(heroSection).display;
-      
+
       if (heroDisplay === 'none' && isHeroVisible) {
         document.documentElement.style.overflow = 'auto';
         isHeroVisible = false;
@@ -68,67 +168,67 @@
         isHeroVisible = true;
       }
     });
-    
+
     observer.observe(heroSection, {
       attributes: true,
       attributeFilter: ['style']
     });
-    
+
     // Handle resize events
     window.addEventListener('resize', () => {
       if (isHeroVisible) {
         document.documentElement.scrollTo(0, 0);
       }
     });
-    </script>
-<script>
-  // Video controls
-  const mainVideo = document.getElementById('mainVideo');
-  const enterBtn = document.getElementById('enterBtn');
-  const replayBtn = document.getElementById('replayBtn');
+  </script>
+  <script>
+    // Video controls
+    const mainVideo = document.getElementById('mainVideo');
+    const enterBtn = document.getElementById('enterBtn');
+    const replayBtn = document.getElementById('replayBtn');
 
-  // Initialize video properties
-  mainVideo.loop = false;
+    // Initialize video properties
+    mainVideo.loop = false;
 
-  // When video ends
-  mainVideo.addEventListener('ended', () => {
+    // When video ends
+    mainVideo.addEventListener('ended', () => {
       enterBtn.style.display = 'block';
-      gsap.to(enterBtn, {opacity: 1, duration: 1});
-      gsap.to(replayBtn, {opacity: 1, duration: 1, display: 'block'});
+      gsap.to(enterBtn, { opacity: 1, duration: 1 });
+      gsap.to(replayBtn, { opacity: 1, duration: 1, display: 'block' });
       mainVideo.pause();
-  });
+    });
 
-  // Handle enter button click
-  enterBtn.addEventListener('click', () => {
+    // Handle enter button click
+    enterBtn.addEventListener('click', () => {
       gsap.to(mainVideo, {
-          opacity: 0,
-          duration: 1,
-          onComplete: () => {
-              mainVideo.style.display = 'none';
-              // Optional: Hide the hero section completely
-              document.querySelector('.hero').style.display = 'none';
-          }
+        opacity: 0,
+        duration: 1,
+        onComplete: () => {
+          mainVideo.style.display = 'none';
+          // Optional: Hide the hero section completely
+          document.querySelector('.hero').style.display = 'none';
+        }
       });
 
-      gsap.to(enterBtn, {opacity: 0, duration: 0.5});
-      gsap.to(replayBtn, {opacity: 0, duration: 0.5});
-  });
+      gsap.to(enterBtn, { opacity: 0, duration: 0.5 });
+      gsap.to(replayBtn, { opacity: 0, duration: 0.5 });
+    });
 
-  // Handle replay button click
-  replayBtn.addEventListener('click', () => {
+    // Handle replay button click
+    replayBtn.addEventListener('click', () => {
       mainVideo.currentTime = 0;
       mainVideo.style.display = 'block';
-      gsap.to(mainVideo, {opacity: 1, duration: 1});
+      gsap.to(mainVideo, { opacity: 1, duration: 1 });
       mainVideo.play();
-      gsap.to(enterBtn, {opacity: 0, duration: 0.5});
-      gsap.to(replayBtn, {opacity: 0, duration: 0.5});
-  });
-</script>    
-    <script type="module" src="./src/main.js"></script>
-    <div class="dvd-btn" id="dvdBtn" title="Toggle DVD Spin">
-      <!-- You can use an emoji, SVG, or text. Here is a simple DVD text. -->
-      <span>DVD</span>
-    
-  </body>
-</html>
+      gsap.to(enterBtn, { opacity: 0, duration: 0.5 });
+      gsap.to(replayBtn, { opacity: 0, duration: 0.5 });
+    });
+  </script>
+  <script type="module" src="./src/main.js"></script>
+  <div class="dvd-btn" id="dvdBtn" title="Toggle DVD Spin">
+    <!-- You can use an emoji, SVG, or text. Here is a simple DVD text. -->
+    <span>DVD</span>
 
+</body>
+
+</html>

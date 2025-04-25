@@ -6,23 +6,6 @@
   box-sizing: border-box;
 }
 
-/* Add these rules */
-html {
-  overflow-y: auto; /* Maintain scroll functionality */
-}
-
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none; /* Hide for WebKit browsers */
-}
-
-body {
-  -ms-overflow-style: none; /* IE/Edge */
-  scrollbar-width: none; /* Firefox */
-  overflow-y: scroll; /* Always show vertical scroll space */
-}
-
-/* Keep existing body styles */
 html, body {
   background-color: #f0f0f0;
   color: #333;

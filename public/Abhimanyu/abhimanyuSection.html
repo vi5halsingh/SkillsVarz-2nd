@@ -10,6 +10,14 @@
 
 </head>
 <body>
+  <button id="prev" onclick="goToPrevSection()">
+    Previous Chapter 
+  </button>
+  <script>
+  function goToPrevSection() {
+    window.parent.postMessage({ type: 'prevGeeta' }, '*');
+  }
+        </script>
   <canvas id="hero-canvas" width="1920" height="1080"></canvas>
   <div class="overlay-lines">
    
@@ -115,8 +123,9 @@
       <p class="subtitle">Salutations to the great Abhimanyu, who entered the Chakravyuha with unmatched courage.</p>
     </div>
   </section>
-  <button id="changeChapter">Next Chapter</button>
-
+<button id="dropdi-btn">
+  Next Chapter ➔ 
+</button>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script  src="./abhimanyuScript.js"></script>

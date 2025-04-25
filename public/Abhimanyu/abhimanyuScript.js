@@ -263,4 +263,17 @@ gsap.from(".shloka", {
   duration: 1
 })
 
+function goToNextSection() {
+  try {
+    window.parent.postMessage({ 
+      type: 'scrollToKaranArjun',
+    }, '*');
+  } catch (error) {
+    console.error('Error navigating to next section:', error);
+  }
+}
+document.querySelector('#dropdi-btn').addEventListener('click',() =>{
+  goToNextSection();
+  // alert("clicked")
+});
 

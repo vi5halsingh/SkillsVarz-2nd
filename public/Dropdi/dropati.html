@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropati - The Celestial Queen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <section class="intro-section">
+        <div class="decor-element" style="top: -50px; right: -50px; background-image: url('circle.png'); background-size: contain; background-repeat: no-repeat; background-position: center;">
+
+        </div>
+        <div class="content ">
+            <h1 class="brutal-heading">Dropati:<br>The Fireborn<br>Queen</h1>
+            <p class="brutal-text">Born from sacred flames, destined to change the course of history</p>
+        </div>
+        <div class="media-container media-container-first">
+            <div class="video-wrapper">
+                <!-- Replace with actual Mahabharata video -->
+                <video src="vdo.mp4" style="width: 100%; height: 100%; object-fit: cover;" muted autoplay playsinline loop></video>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-section">
+        <div class="decor-element" style="bottom: -50px; left: -50px;"></div>
+        <div class="horizontal-scroll">
+            <div class="horizontal-scroll__container">
+                <div class="horizontal-scroll__item">
+                    <img src="krsna.png" alt="Krsna" class="side-image" />
+                    <h3>The Swayamvara</h3>
+                    <p>Dropati's legendary archery contest to choose her husband</p>
+                </div>
+                <div class="horizontal-scroll__item">
+                    <img src="krsna.png" alt="Krsna" class="side-image" />
+                    <h3>Five Husbands</h3>
+                    <p>Her unique marriage to all Pandava brothers</p>
+                </div>
+                <div class="horizontal-scroll__item">
+                    <img src="krsna.png" alt="Krsna" class="side-image" />
+                    <h3>The Dice Game</h3>
+                    <p>Her humiliation and vow that changed history</p>
+                </div>
+                <div class="horizontal-scroll__item">
+                    <img src="krsna.png" alt="Krsna" class="side-image" />
+                    <h3>Exile Years</h3>
+                    <p>Her resilience during the Pandavas' forest exile</p>
+                </div>
+            </div>
+            
+        </div>
+        <div class="decor-element decor-element-middle" style="top: -50px; left: -50px; background-image: url('circle.png'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+    </section>
+        <!-- <div class="media-container">
+            <div class="video-wrapper">
+              
+                <iframe src="https://www.youtube.com/embed/EXAMPLE_ID" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div> -->
+        <div class="content">
+            <h2 class="brutal-heading brutal-heading-middle">Five Husbands<br>One Soul</h2>
+            <p class="brutal-text">The only woman to marry all five Pandavas, her life was a testament to sacrifice and strength</p>
+        </div>
+    </section>
+
+    <section class="legacy-section">
+        <div class="decor-element decor-element-second" style="top: -50px; right: -50px; background-image: url('circle.png'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+        <div class="content">
+            <h2 class="brutal-heading">Eternal<br>Flame</h2>
+            <p class="brutal-text">Her story continues to inspire generations as a symbol of resilience and devotion</p>
+        </div>
+        <div class="media-container">
+            <div class="video-wrapper">
+                <!-- Replace with actual Mahabharata video -->
+                <video src="vdo2.mp4" style="width: 100%; height: 100%; object-fit: cover;" muted autoplay playsinline loop></video>
+            </div>
+        </div>
+    </section>
+
+    <div class="scroll-hint">
+        <span>SCROLL</span>
+        <div class="arrow"></div>
+    </div>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+    <button id="dropdi-btn" onclick="goToNextSection()">
+    Next Chapter ➔ 
+  </button>
+  <script>
+
+function goToNextSection() {
+    window.parent.postMessage({ type: 'scrollToGeeta' }, '*');
+  }
+        </script>
+  
+</body>
+</html>
